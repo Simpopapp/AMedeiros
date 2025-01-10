@@ -64,6 +64,7 @@
   }
 }
 
+/* Performance optimized animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -77,10 +78,12 @@
 
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-out forwards;
+  will-change: transform, opacity;
 }
 
 .glass {
   @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
+  will-change: backdrop-filter;
 }
 
 .section-padding {
@@ -89,9 +92,10 @@
 
 .card-gradient {
   @apply bg-gradient-to-br from-card to-secondary/80 backdrop-blur-sm;
+  will-change: background-color;
 }
 
-/* Scroll behavior */
+/* Optimized scroll behavior */
 ::-webkit-scrollbar {
   @apply w-2;
 }
@@ -104,7 +108,7 @@
   @apply bg-resume-accent/50 rounded-full hover:bg-resume-accent/70 transition-colors;
 }
 
-/* Print styles */
+/* Print optimization */
 @media print {
   .no-print {
     display: none !important;
@@ -112,18 +116,38 @@
   
   body {
     @apply bg-white text-black;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   
   section {
     @apply py-4 px-2;
     page-break-inside: avoid;
+    break-inside: avoid;
   }
   
   h1, h2, h3 {
     page-break-after: avoid;
+    break-after: avoid;
   }
   
   img {
     max-width: 100% !important;
   }
+
+  @page {
+    margin: 1.5cm;
+  }
+}
+
+/* Loading states */
+.loading-skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+/* Optimized transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
 }

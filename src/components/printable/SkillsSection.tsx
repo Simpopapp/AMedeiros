@@ -1,4 +1,4 @@
-import { Award, Target, Users, TrendingUp, Briefcase } from "lucide-react";
+import { Award, Target, Users, TrendingUp, Briefcase, Globe2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const SkillsSection = () => {
@@ -70,25 +70,25 @@ export const SkillsSection = () => {
           className="bg-resume-secondary p-6 rounded-lg"
         >
           <h4 className="text-xl font-semibold text-resume-primary mb-4 flex items-center gap-2">
-            <Users className="h-5 w-5 text-resume-accent" />
-            Gestão de Equipes
+            <Globe2 className="h-5 w-5 text-resume-accent" />
+            Competências Internacionais
           </h4>
           <ul className="space-y-2 text-resume-text">
             <li className="flex items-start gap-2">
               <span className="text-resume-accent mt-1.5">•</span>
-              <span>Liderança de equipes com até 42 colaboradores diretos</span>
+              <span>Gestão de negócios internacionais e importação</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-resume-accent mt-1.5">•</span>
-              <span>Gestão de equipes comerciais e de promotores</span>
+              <span>Desenvolvimento de marcas próprias globais</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-resume-accent mt-1.5">•</span>
-              <span>Desenvolvimento e treinamento de equipes comerciais</span>
+              <span>Negociação com fornecedores internacionais</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-resume-accent mt-1.5">•</span>
-              <span>Coordenação de equipes multidisciplinares</span>
+              <span>Expansão de negócios em mercados globais</span>
             </li>
           </ul>
         </motion.div>

@@ -34,7 +34,7 @@ export const PrintableLayout = ({ children }: PrintableLayoutProps) => {
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed top-4 right-4 no-print flex gap-2"
+        className="fixed top-4 right-4 z-50 no-print flex gap-2"
       >
         <Button
           variant="outline"
@@ -64,38 +64,6 @@ export const PrintableLayout = ({ children }: PrintableLayoutProps) => {
       </motion.div>
       
       {children}
-
-      <style>
-        {`
-          @media print {
-            @page {
-              size: A4;
-              margin: 0;
-            }
-            
-            body {
-              margin: 0;
-              padding: 0;
-              -webkit-print-color-adjust: exact;
-              print-color-adjust: exact;
-            }
-
-            .page-break-after {
-              page-break-after: always;
-              break-after: page;
-            }
-
-            .no-print {
-              display: none !important;
-            }
-
-            img {
-              print-color-adjust: exact;
-              -webkit-print-color-adjust: exact;
-            }
-          }
-        `}
-      </style>
     </div>
   );
 };

@@ -13,26 +13,55 @@ const PrintableResume = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
+        className="print:m-0"
       >
         {/* Página 1: Cabeçalho e Resumo */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8">
+        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
           <SkillsSection />
           <PrintableFooter pageNumber={1} />
         </section>
 
         {/* Página 2: Experiência */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8">
+        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
           <ExperienceSection />
           <PrintableFooter pageNumber={2} />
         </section>
 
         {/* Página 3: Educação e Competências */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg">
+        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
           <EducationSection />
           <PrintableFooter pageNumber={3} />
         </section>
       </motion.div>
+
+      <style jsx global>{`
+        @media print {
+          @page {
+            size: A4;
+            margin: 0;
+          }
+          
+          body {
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+
+          .page-break-before {
+            page-break-before: always;
+          }
+
+          .no-print {
+            display: none !important;
+          }
+
+          section {
+            break-inside: avoid;
+          }
+        }
+      `}</style>
     </PrintableLayout>
   );
 };

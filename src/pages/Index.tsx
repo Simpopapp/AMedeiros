@@ -4,18 +4,11 @@ import { Experience } from "@/components/Experience";
 import { Education } from "@/components/Education";
 import { Skills } from "@/components/Skills";
 import { Languages } from "@/components/Languages";
-import { ArrowUpCircle, Share2, Download, Printer, ArrowRight, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useState, useEffect, Suspense } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { ActionButtons } from "@/components/layout/ActionButtons";
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -121,75 +114,15 @@ const Index = () => {
             <Skills />
             <Languages />
 
-            {/* Fixed Action Buttons Container */}
-            <div className="fixed bottom-8 right-8 flex flex-col items-end gap-4 z-50">
-              {/* LinkedIn Button */}
-              <Button
-                onClick={handleLinkedInClick}
-                variant="outline"
-                className="bg-[#0077B5] text-white hover:bg-[#0077B5]/80 shadow-lg transition-all duration-300 rounded-full flex items-center gap-2 px-6"
-              >
-                <Linkedin className="h-4 w-4" />
-                LinkedIn
-              </Button>
-
-              {/* PDF Version Button */}
-              <Button
-                onClick={handlePrintableView}
-                variant="outline"
-                className="bg-resume-primary text-white hover:bg-resume-primary/80 shadow-lg transition-all duration-300 rounded-full flex items-center gap-2 px-6"
-              >
-                Versão PDF <ArrowRight className="h-4 w-4" />
-              </Button>
-
-              {/* Scroll to Top Button */}
-              <AnimatePresence>
-                {showScrollTop && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="bg-resume-accent text-white hover:bg-resume-accent/80 shadow-lg transition-all duration-300 rounded-full"
-                      onClick={scrollToTop}
-                      aria-label="Voltar ao topo"
-                    >
-                      <ArrowUpCircle className="h-5 w-5" />
-                    </Button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Options Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="bg-resume-primary text-white hover:bg-resume-primary/80 shadow-lg transition-all duration-300 rounded-full flex items-center gap-2 px-6"
-                  >
-                    Opções <Share2 className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48 mt-2">
-                  <DropdownMenuItem onClick={handlePrint} className="cursor-pointer">
-                    <Printer className="mr-2 h-4 w-4" />
-                    Imprimir
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleDownloadPDF} className="cursor-pointer">
-                    <Download className="mr-2 h-4 w-4" />
-                    Baixar PDF
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleShare} className="cursor-pointer">
-                    <Share2 className="mr-2 h-4 w-4" />
-                    Compartilhar
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
+            <ActionButtons
+              showScrollTop={showScrollTop}
+              onScrollTop={scrollToTop}
+              onLinkedInClick={handleLinkedInClick}
+              onPrintableView={handlePrintableView}
+              onPrint={handlePrint}
+              onDownloadPDF={handleDownloadPDF}
+              onShare={handleShare}
+            />
           </motion.div>
         </AnimatePresence>
       </Suspense>

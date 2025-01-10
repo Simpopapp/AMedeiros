@@ -1,18 +1,22 @@
 import { useCallback } from "react";
-import Particles from "@tsparticles/react";
-import type { Engine } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
+import Particles from "react-particles";
+import type { Container, Engine } from "tsparticles-engine";
+import { loadFull } from "tsparticles";
 
 export const ParticleBackground = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log("Initializing tsParticles");
-    await loadSlim(engine);
+    await loadFull(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container: Container | undefined) => {
+    console.log(container);
   }, []);
 
   return (
     <Particles
       id="tsparticles"
       init={particlesInit}
+      loaded={particlesLoaded}
       options={{
         background: {
           color: {
@@ -30,10 +34,7 @@ export const ParticleBackground = () => {
               enable: true,
               mode: "repulse",
             },
-            resize: {
-              enable: true,
-              delay: 0.5
-            },
+            resize: true,
           },
           modes: {
             push: {
@@ -69,7 +70,7 @@ export const ParticleBackground = () => {
           number: {
             density: {
               enable: true,
-              value_area: 800,
+              area: 800,
             },
             value: 80,
           },

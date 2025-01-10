@@ -17,27 +17,29 @@ const PrintableResume = () => {
       >
         {/* Página 1: Cabeçalho e Resumo */}
         <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
-          <PrintableHeader />
-          <div className="flex-grow">
-            <SkillsSection />
+          <div className="flex-1 flex flex-col h-full">
+            <PrintableHeader />
+            <div className="flex-1 py-8">
+              <SkillsSection />
+            </div>
+            <PrintableFooter pageNumber={1} />
           </div>
-          <PrintableFooter pageNumber={1} />
         </section>
 
         {/* Página 2: Experiência */}
         <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
-          <div className="flex-grow">
+          <div className="flex-1 flex flex-col h-full">
             <ExperienceSection />
+            <PrintableFooter pageNumber={2} />
           </div>
-          <PrintableFooter pageNumber={2} />
         </section>
 
         {/* Página 3: Educação e Competências */}
         <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
-          <div className="flex-grow">
+          <div className="flex-1 flex flex-col h-full">
             <EducationSection />
+            <PrintableFooter pageNumber={3} />
           </div>
-          <PrintableFooter pageNumber={3} />
         </section>
       </motion.div>
 
@@ -58,32 +60,34 @@ const PrintableResume = () => {
 
             .page-break-before {
               page-break-before: always;
-            }
-
-            .no-print {
-              display: none !important;
+              break-after: page;
             }
 
             section {
               break-inside: avoid;
               height: 297mm;
-              box-sizing: border-box;
+              width: 210mm;
+              position: relative;
               overflow: hidden;
+            }
+
+            .no-print {
+              display: none !important;
             }
           }
 
-          /* Preview styles */
+          /* Ensure consistent sizing even in preview */
           section {
-            height: 297mm;
             box-sizing: border-box;
+            min-height: 297mm;
+            width: 210mm;
+            position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
           }
 
-          .flex-grow {
-            flex: 1;
-            overflow-y: auto;
+          /* Flex container for content */
+          .flex-1 {
+            flex: 1 1 auto;
           }
         `}
       </style>

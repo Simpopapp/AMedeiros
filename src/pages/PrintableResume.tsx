@@ -1,62 +1,19 @@
-import { User, Mail, MapPin, Briefcase, Globe2, Brain, Code, Lightbulb, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { PrintableHeader } from "@/components/printable/PrintableHeader";
+import { PrintableFooter } from "@/components/printable/PrintableFooter";
+import { PrintableLayout } from "@/components/printable/PrintableLayout";
 
 const PrintableResume = () => {
-  const handleDownloadPDF = () => {
-    toast.success("Preparando PDF para download...");
-    window.print();
-  };
-
   return (
-    <div className="bg-white min-h-screen">
-      {/* Download Button - Only visible on screen */}
-      <div className="fixed top-4 right-4 no-print">
-        <Button
-          onClick={handleDownloadPDF}
-          className="bg-resume-accent hover:bg-resume-accent/90 text-white"
-        >
-          <Download className="mr-2 h-4 w-4" />
-          Baixar PDF
-        </Button>
-      </div>
-
-      {/* Page 1: Header and Summary */}
+    <PrintableLayout>
+      {/* Página 1: Cabeçalho e Resumo */}
       <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8">
-        <header className="mb-8">
-          <div className="flex items-center gap-8">
-            <div className="w-40 h-40 rounded-full overflow-hidden">
-              <img
-                src="/lovable-uploads/0f0bddb9-9136-4122-a863-4751fe7f38e9.png"
-                alt="Alessandra Medeiros de Oliveira"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <h1 className="text-4xl font-bold text-resume-primary mb-4">
-                Alessandra Medeiros de Oliveira
-              </h1>
-              <div className="flex items-center gap-2 text-resume-accent mb-4">
-                <Briefcase className="w-5 h-5" />
-                <h2 className="text-xl">Diretora Comercial</h2>
-              </div>
-              <div className="flex flex-col gap-2 text-resume-text">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  <span>São Paulo, Brazil</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <span>contato@alessandra.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
+        <PrintableHeader />
+        
         <main className="flex-grow">
           <div className="bg-resume-secondary p-6 rounded-lg mb-8">
-            <h3 className="text-2xl font-bold text-resume-primary mb-4">Resumo Profissional</h3>
+            <h3 className="text-2xl font-bold text-resume-primary mb-4">
+              Resumo Profissional
+            </h3>
             <p className="text-resume-text mb-4">
               Com mais de duas décadas em gestão comercial, na Indústria e varejo, 
               dedico-me atualmente à expansão e fortalecimento das categorias de 
@@ -70,19 +27,14 @@ const PrintableResume = () => {
           </div>
         </main>
 
-        <footer className="mt-auto pt-8 text-center text-resume-text">
-          <p>Página 1 de 3</p>
-        </footer>
+        <PrintableFooter pageNumber={1} />
       </section>
 
-      {/* Page 2: Experience */}
+      {/* Página 2: Experiência */}
       <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8">
-        <header className="mb-8">
-          <h2 className="text-3xl font-bold text-resume-primary flex items-center gap-2">
-            <Briefcase className="h-8 w-8 text-resume-accent" />
-            Experiência Profissional
-          </h2>
-        </header>
+        <h2 className="text-3xl font-bold text-resume-primary mb-8">
+          Experiência Profissional
+        </h2>
 
         <main className="flex-grow">
           <div className="space-y-6">
@@ -128,19 +80,14 @@ const PrintableResume = () => {
           </div>
         </main>
 
-        <footer className="mt-auto pt-8 text-center text-resume-text">
-          <p>Página 2 de 3</p>
-        </footer>
+        <PrintableFooter pageNumber={2} />
       </section>
 
-      {/* Page 3: Skills and Languages */}
+      {/* Página 3: Competências e Idiomas */}
       <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg">
-        <header className="mb-8">
-          <h2 className="text-3xl font-bold text-resume-primary mb-8 flex items-center gap-2">
-            <Brain className="h-8 w-8 text-resume-accent" />
-            Competências e Idiomas
-          </h2>
-        </header>
+        <h2 className="text-3xl font-bold text-resume-primary mb-8">
+          Competências e Idiomas
+        </h2>
 
         <main className="flex-grow">
           <div className="grid grid-cols-3 gap-6 mb-12">
@@ -217,36 +164,9 @@ const PrintableResume = () => {
           </div>
         </main>
 
-        <footer className="mt-auto pt-8 text-center text-resume-text">
-          <p>Página 3 de 3</p>
-        </footer>
+        <PrintableFooter pageNumber={3} />
       </section>
-
-      <style>
-        {`
-          @media print {
-            @page {
-              size: A4;
-              margin: 0;
-            }
-            
-            body {
-              margin: 0;
-              padding: 0;
-            }
-
-            .page-break-after {
-              page-break-after: always;
-              break-after: page;
-            }
-
-            .no-print {
-              display: none !important;
-            }
-          }
-        `}
-      </style>
-    </div>
+    </PrintableLayout>
   );
 };
 

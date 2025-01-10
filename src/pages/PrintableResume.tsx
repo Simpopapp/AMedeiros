@@ -6,6 +6,7 @@ import { SkillsSection } from "@/components/printable/SkillsSection";
 import { EducationSection } from "@/components/printable/EducationSection";
 import { Globe2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Separator } from "@/components/ui/separator";
 
 const PrintableResume = () => {
   const languages = [
@@ -25,9 +26,11 @@ const PrintableResume = () => {
         {/* Página 1: Cabeçalho e Resumo */}
         <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
+          <Separator className="my-6 bg-resume-primary/10" />
           <div className="flex-grow overflow-auto">
             <SkillsSection />
           </div>
+          <Separator className="my-6 bg-resume-primary/10" />
           <PrintableFooter pageNumber={1} />
         </section>
 
@@ -36,9 +39,11 @@ const PrintableResume = () => {
           <h2 className="text-3xl font-bold text-resume-primary mb-8">
             Experiência Profissional
           </h2>
+          <Separator className="mb-8 bg-resume-primary/10" />
           <div className="flex-grow overflow-auto">
             <ExperienceSection page={1} />
           </div>
+          <Separator className="my-6 bg-resume-primary/10" />
           <PrintableFooter pageNumber={2} />
         </section>
 
@@ -47,13 +52,17 @@ const PrintableResume = () => {
           <div className="flex-grow overflow-auto">
             <ExperienceSection page={2} />
           </div>
+          <Separator className="my-6 bg-resume-primary/10" />
           <PrintableFooter pageNumber={3} />
         </section>
 
         {/* Página 4: Educação, Competências e Idiomas */}
         <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
           <div className="flex-grow overflow-auto space-y-12">
-            <EducationSection />
+            <div>
+              <EducationSection />
+              <Separator className="my-12 bg-resume-primary/10" />
+            </div>
             
             {/* Seção de Idiomas */}
             <div className="mt-12">
@@ -68,7 +77,7 @@ const PrintableResume = () => {
                 {languages.map((language) => (
                   <div
                     key={language.name}
-                    className="bg-resume-secondary p-6 rounded-lg"
+                    className="bg-resume-secondary p-6 rounded-lg border border-resume-primary/5 hover:border-resume-accent/20 transition-colors duration-300"
                   >
                     <h3 className="text-xl font-semibold text-resume-primary mb-2">
                       {language.name}
@@ -85,6 +94,7 @@ const PrintableResume = () => {
               </div>
             </div>
           </div>
+          <Separator className="my-6 bg-resume-primary/10" />
           <PrintableFooter pageNumber={4} />
         </section>
       </motion.div>

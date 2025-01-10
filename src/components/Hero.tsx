@@ -8,14 +8,9 @@ export const Hero = () => {
   // Optimized animations with spring physics
   const springConfig = { stiffness: 100, damping: 30, mass: 0.5 };
   
-  // Removed opacity transform, keeping only scale and y for subtle scroll effects
-  const scale = useSpring(
-    useTransform(scrollY, [0, 300], [1, 0.8]),
-    springConfig
-  );
-  
+  // Changed to translate Y based on scroll position for parallax effect
   const y = useSpring(
-    useTransform(scrollY, [0, 300], [0, 50]),
+    useTransform(scrollY, [0, 300], [0, 150]),
     springConfig
   );
 
@@ -24,7 +19,7 @@ export const Hero = () => {
       initial="initial"
       animate="animate"
       variants={staggerContainer}
-      style={{ scale, y }}
+      style={{ y }}
       className="min-h-[90vh] bg-gradient-modern flex flex-col justify-center items-center p-8 relative overflow-hidden"
     >
       {/* Optimized Background Pattern */}

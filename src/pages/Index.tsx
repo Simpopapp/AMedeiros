@@ -33,6 +33,7 @@ const Index = () => {
       title: "Bem-vindo ao Currículo Digital",
       description: "Navegue pelo conteúdo usando o scroll ou o menu de navegação. Use as opções de compartilhamento para exportar ou enviar o currículo.",
       duration: 5000,
+      className: "absolute left-48 top-48"
     });
 
     return () => window.removeEventListener("scroll", handleScroll);

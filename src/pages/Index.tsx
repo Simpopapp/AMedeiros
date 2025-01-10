@@ -4,11 +4,12 @@ import { Experience } from "@/components/Experience";
 import { Education } from "@/components/Education";
 import { Skills } from "@/components/Skills";
 import { Languages } from "@/components/Languages";
-import { ArrowUpCircle, Share2, Download, Printer } from "lucide-react";
+import { ArrowUpCircle, Share2, Download, Printer, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, Suspense } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,6 +20,7 @@ import {
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,6 +91,10 @@ const Index = () => {
     window.print();
   };
 
+  const handlePrintableView = () => {
+    navigate('/printable');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Suspense fallback={
@@ -109,6 +115,17 @@ const Index = () => {
             <Education />
             <Skills />
             <Languages />
+
+            {/* PDF Version Button */}
+            <div className="fixed bottom-24 right-8 z-50">
+              <Button
+                onClick={handlePrintableView}
+                variant="outline"
+                className="bg-resume-primary text-white hover:bg-resume-primary/90 transition-all duration-300"
+              >
+                Versão PDF <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
           </motion.div>
         </AnimatePresence>
       </Suspense>

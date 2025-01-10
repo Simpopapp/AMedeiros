@@ -108,7 +108,7 @@
   @apply bg-resume-accent/50 rounded-full hover:bg-resume-accent/70 transition-colors;
 }
 
-/* Print optimization */
+/* Enhanced print optimization */
 @media print {
   .no-print {
     display: none !important;
@@ -118,6 +118,8 @@
     @apply bg-white text-black;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    margin: 0;
+    padding: 0;
   }
   
   section {
@@ -133,10 +135,31 @@
   
   img {
     max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
   }
 
   @page {
+    size: A4;
     margin: 1.5cm;
+  }
+
+  .glass,
+  .card-gradient {
+    background: white !important;
+    backdrop-filter: none !important;
+    border: 1px solid #eee !important;
+  }
+
+  .animate-fadeIn,
+  .motion-div {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

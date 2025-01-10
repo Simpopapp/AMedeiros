@@ -42,11 +42,11 @@ const Index = () => {
 
   const handlePrint = () => {
     toast({
-      title: "Preparando impressão",
-      description: "O currículo está sendo preparado para impressão em PDF",
+      title: "Preparando versão para impressão",
+      description: "Redirecionando para a versão otimizada para PDF...",
       duration: 3000,
     });
-    window.open('/static-resume', '_blank');
+    window.open('/printable', '_blank');
   };
 
   const handleShare = async () => {

@@ -110,56 +110,40 @@
 
 /* Enhanced print optimization */
 @media print {
-  .no-print {
-    display: none !important;
+  @page {
+    size: A4;
+    margin: 0;
   }
-  
+
   body {
-    @apply bg-white text-black;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
     margin: 0;
     padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  
+
+  .page-break-after {
+    page-break-after: always;
+    break-after: page;
+  }
+
   section {
-    @apply py-4 px-2;
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   h1, h2, h3 {
     page-break-after: avoid;
     break-after: avoid;
   }
-  
+
   img {
-    max-width: 100% !important;
     page-break-inside: avoid;
+    break-inside: avoid;
   }
 
-  a {
-    text-decoration: none !important;
-    color: inherit !important;
-  }
-
-  @page {
-    size: A4;
-    margin: 1.5cm;
-  }
-
-  .glass,
-  .card-gradient {
-    background: white !important;
-    backdrop-filter: none !important;
-    border: 1px solid #eee !important;
-  }
-
-  .animate-fadeIn,
-  .motion-div {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
+  .no-print {
+    display: none !important;
   }
 }
 

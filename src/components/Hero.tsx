@@ -12,7 +12,7 @@ export const Hero = () => {
       <div className="relative z-10 max-w-4xl w-full flex flex-col items-center">
         <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-resume-accent mb-8 overflow-hidden shadow-xl border-4 border-white">
           <img
-            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2787&auto=format&fit=crop"
+            src="/lovable-uploads/0f0bddb9-9136-4122-a863-4751fe7f38e9.png"
             alt="Alessandra Medeiros de Oliveira"
             className="w-full h-full object-cover"
           />

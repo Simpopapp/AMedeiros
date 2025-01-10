@@ -35,33 +35,35 @@ const PrintableResume = () => {
         </section>
       </motion.div>
 
-      <style jsx global>{`
-        @media print {
-          @page {
-            size: A4;
-            margin: 0;
-          }
-          
-          body {
-            margin: 0;
-            padding: 0;
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
-          }
+      <style>
+        {`
+          @media print {
+            @page {
+              size: A4;
+              margin: 0;
+            }
+            
+            body {
+              margin: 0;
+              padding: 0;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
 
-          .page-break-before {
-            page-break-before: always;
-          }
+            .page-break-before {
+              page-break-before: always;
+            }
 
-          .no-print {
-            display: none !important;
-          }
+            .no-print {
+              display: none !important;
+            }
 
-          section {
-            break-inside: avoid;
+            section {
+              break-inside: avoid;
+            }
           }
-        }
-      `}</style>
+        `}
+      </style>
     </PrintableLayout>
   );
 };

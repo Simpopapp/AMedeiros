@@ -116,68 +116,68 @@ const Index = () => {
             <Skills />
             <Languages />
 
-            {/* PDF Version Button */}
-            <div className="fixed bottom-24 right-8 z-50">
+            {/* Fixed Action Buttons Container */}
+            <div className="fixed bottom-8 right-8 flex flex-col items-end gap-4 z-50">
+              {/* PDF Version Button */}
               <Button
                 onClick={handlePrintableView}
                 variant="outline"
-                className="bg-resume-primary text-white hover:bg-resume-primary/90 transition-all duration-300"
+                className="bg-resume-primary text-white hover:bg-resume-primary/80 shadow-lg transition-all duration-300 rounded-full flex items-center gap-2 px-6"
               >
-                Versão PDF <ArrowRight className="ml-2 h-4 w-4" />
+                Versão PDF <ArrowRight className="h-4 w-4" />
               </Button>
+
+              {/* Scroll to Top Button */}
+              <AnimatePresence>
+                {showScrollTop && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="bg-resume-accent text-white hover:bg-resume-accent/80 shadow-lg transition-all duration-300 rounded-full"
+                      onClick={scrollToTop}
+                      aria-label="Voltar ao topo"
+                    >
+                      <ArrowUpCircle className="h-5 w-5" />
+                    </Button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Options Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="bg-resume-primary text-white hover:bg-resume-primary/80 shadow-lg transition-all duration-300 rounded-full flex items-center gap-2 px-6"
+                  >
+                    Opções <Share2 className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48 mt-2">
+                  <DropdownMenuItem onClick={handlePrint} className="cursor-pointer">
+                    <Printer className="mr-2 h-4 w-4" />
+                    Imprimir
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleDownloadPDF} className="cursor-pointer">
+                    <Download className="mr-2 h-4 w-4" />
+                    Baixar PDF
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleShare} className="cursor-pointer">
+                    <Share2 className="mr-2 h-4 w-4" />
+                    Compartilhar
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </motion.div>
         </AnimatePresence>
       </Suspense>
-      
-      {/* Enhanced floating action buttons */}
-      <div className="fixed bottom-8 right-8 flex flex-col gap-4 no-print z-50">
-        <AnimatePresence>
-          {showScrollTop && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Button
-                variant="outline"
-                size="icon"
-                className="rounded-full bg-resume-accent text-white hover:bg-resume-accent/90 transition-all duration-300"
-                onClick={scrollToTop}
-                aria-label="Voltar ao topo"
-              >
-                <ArrowUpCircle className="h-5 w-5" />
-              </Button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              className="rounded-full bg-resume-primary text-white hover:bg-resume-primary/90 transition-all duration-300"
-            >
-              Opções <Share2 className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-48">
-            <DropdownMenuItem onClick={handlePrint}>
-              <Printer className="mr-2 h-4 w-4" />
-              Imprimir
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={handleDownloadPDF}>
-              <Download className="mr-2 h-4 w-4" />
-              Baixar PDF
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={handleShare}>
-              <Share2 className="mr-2 h-4 w-4" />
-              Compartilhar
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
     </div>
   );
 };

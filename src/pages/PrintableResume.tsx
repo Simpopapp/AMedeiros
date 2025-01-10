@@ -26,11 +26,9 @@ const PrintableResume = () => {
         {/* Página 1: Cabeçalho e Resumo */}
         <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
-          <Separator className="my-6 bg-resume-primary/10" />
           <div className="flex-grow overflow-auto">
             <SkillsSection />
           </div>
-          <Separator className="my-6 bg-resume-primary/10" />
           <PrintableFooter pageNumber={1} />
         </section>
 

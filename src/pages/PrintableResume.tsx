@@ -56,38 +56,38 @@ const PrintableResume = () => {
 
         {/* Página 4: Educação e Idiomas */}
         <section className="w-[210mm] h-[297mm] mx-auto p-12 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
-          <div className="flex-grow space-y-12">
+          <div className="flex-grow space-y-16">
             <div>
               <EducationSection />
-              <Separator className="my-12 bg-resume-primary/10" />
+              <Separator className="my-16 bg-resume-primary/10" />
             </div>
             
             {/* Seção de Idiomas */}
-            <div>
-              <div className="flex items-center gap-4 mb-8">
-                <Globe2 className="h-8 w-8 text-resume-accent" />
+            <div className="pb-12">
+              <div className="flex items-center gap-4 mb-12">
+                <Globe2 className="h-8 w-8 text-resume-accent stroke-[1.5]" />
                 <h2 className="text-3xl font-bold text-resume-primary">
                   Idiomas
                 </h2>
               </div>
               
-              <div className="flex gap-8 justify-between">
+              <div className="flex gap-12 justify-between">
                 {languages.map((language) => (
                   <div
                     key={language.name}
-                    className="flex-1 bg-resume-secondary/50 px-6 py-5 rounded-lg border border-resume-primary/5"
+                    className="flex-1 bg-resume-secondary/30 px-8 py-6 rounded-xl border border-resume-primary/5 shadow-sm hover:shadow-md transition-shadow duration-300"
                   >
-                    <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-xl font-semibold text-resume-primary">
+                    <div className="flex justify-between items-center mb-6">
+                      <h3 className="text-2xl font-semibold text-resume-primary">
                         {language.name}
                       </h3>
-                      <span className="text-base text-resume-text">
+                      <span className="text-base text-resume-text font-medium">
                         {language.level}
                       </span>
                     </div>
-                    <div className="w-full bg-white/50 rounded-full h-2">
+                    <div className="w-full bg-white/80 rounded-full h-2.5">
                       <div
-                        className="bg-resume-accent h-2 rounded-full transition-all duration-500"
+                        className="bg-resume-accent h-2.5 rounded-full transition-all duration-500"
                         style={{ width: `${language.proficiency}%` }}
                       />
                     </div>

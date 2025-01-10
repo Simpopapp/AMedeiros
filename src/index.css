@@ -111,25 +111,42 @@
 /* Enhanced print optimization */
 @media print {
   @page {
-    size: A4;
+    size: A4 portrait;
     margin: 0;
+  }
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    margin: 0;
-    padding: 0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  .page-break-after {
+  section {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm !important;
+    margin: 0 !important;
     page-break-after: always;
     break-after: page;
   }
 
-  section {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  section:last-child {
+    page-break-after: auto;
+  }
+
+  .page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .no-print {
+    display: none !important;
   }
 
   h1, h2, h3 {
@@ -140,10 +157,6 @@
   img {
     page-break-inside: avoid;
     break-inside: avoid;
-  }
-
-  .no-print {
-    display: none !important;
   }
 }
 

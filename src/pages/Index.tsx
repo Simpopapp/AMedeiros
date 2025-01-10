@@ -46,9 +46,7 @@ const Index = () => {
       description: "O currículo está sendo preparado para impressão em PDF",
       duration: 3000,
     });
-    setTimeout(() => {
-      window.print();
-    }, 500);
+    window.open('/static-resume', '_blank');
   };
 
   const handleShare = async () => {

@@ -16,21 +16,27 @@ const PrintableResume = () => {
         className="print:m-0"
       >
         {/* Página 1: Cabeçalho e Resumo */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
-          <SkillsSection />
+          <div className="flex-grow">
+            <SkillsSection />
+          </div>
           <PrintableFooter pageNumber={1} />
         </section>
 
         {/* Página 2: Experiência */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
-          <ExperienceSection />
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
+          <div className="flex-grow">
+            <ExperienceSection />
+          </div>
           <PrintableFooter pageNumber={2} />
         </section>
 
         {/* Página 3: Educação e Competências */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
-          <EducationSection />
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
+          <div className="flex-grow">
+            <EducationSection />
+          </div>
           <PrintableFooter pageNumber={3} />
         </section>
       </motion.div>
@@ -60,7 +66,24 @@ const PrintableResume = () => {
 
             section {
               break-inside: avoid;
+              height: 297mm;
+              box-sizing: border-box;
+              overflow: hidden;
             }
+          }
+
+          /* Preview styles */
+          section {
+            height: 297mm;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .flex-grow {
+            flex: 1;
+            overflow-y: auto;
           }
         `}
       </style>

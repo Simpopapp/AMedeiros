@@ -1,4 +1,4 @@
-import { Award, Target, Users } from "lucide-react";
+import { Award, Target, Users, TrendingUp, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const SkillsSection = () => {
@@ -6,7 +6,7 @@ export const SkillsSection = () => {
     <main className="flex-grow space-y-6">
       <div className="bg-resume-secondary p-6 rounded-lg">
         <h3 className="text-2xl font-bold text-resume-primary mb-4 flex items-center gap-2">
-          <Target className="h-6 w-6 text-resume-accent" />
+          <Briefcase className="h-6 w-6 text-resume-accent" />
           Resumo Profissional
         </h3>
         <div className="space-y-4 text-resume-text">
@@ -24,7 +24,10 @@ export const SkillsSection = () => {
           <p>
             A condução dos negócios nacionais e internacionais, desenvolvimento de 
             marca própria e gestão estratégica de produtos, me proporcionaram uma 
-            visão global e competências profundas em negociações e parcerias comerciais.
+            visão global e competências profundas em negociações e parcerias comerciais. 
+            Esses desafios enriqueceram minha habilidade de construir relacionamentos 
+            sólidos com fornecedores e clientes, consolidando marcas no mercado nacional 
+            e contribuindo para a expansão de negócios no varejo.
           </p>
         </div>
       </div>
@@ -37,8 +40,8 @@ export const SkillsSection = () => {
           className="bg-resume-secondary p-6 rounded-lg"
         >
           <h4 className="text-xl font-semibold text-resume-primary mb-4 flex items-center gap-2">
-            <Award className="h-5 w-5 text-resume-accent" />
-            Principais Conquistas
+            <TrendingUp className="h-5 w-5 text-resume-accent" />
+            Principais Resultados
           </h4>
           <ul className="space-y-2 text-resume-text">
             <li className="flex items-start gap-2">
@@ -52,6 +55,10 @@ export const SkillsSection = () => {
             <li className="flex items-start gap-2">
               <span className="text-resume-accent mt-1.5">•</span>
               <span>Ampliou carteira de 2.500 para 17.000 clientes</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-resume-accent mt-1.5">•</span>
+              <span>72% de incremento em vendas no projeto Wal Mart</span>
             </li>
           </ul>
         </motion.div>
@@ -69,15 +76,19 @@ export const SkillsSection = () => {
           <ul className="space-y-2 text-resume-text">
             <li className="flex items-start gap-2">
               <span className="text-resume-accent mt-1.5">•</span>
-              <span>Liderança de equipes com até 42 colaboradores</span>
+              <span>Liderança de equipes com até 42 colaboradores diretos</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-resume-accent mt-1.5">•</span>
-              <span>Gestão de vendedores e promotores em múltiplos canais</span>
+              <span>Gestão de equipes comerciais e de promotores</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-resume-accent mt-1.5">•</span>
               <span>Desenvolvimento e treinamento de equipes comerciais</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-resume-accent mt-1.5">•</span>
+              <span>Coordenação de equipes multidisciplinares</span>
             </li>
           </ul>
         </motion.div>

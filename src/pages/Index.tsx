@@ -2,6 +2,8 @@ import { Hero } from "@/components/Hero";
 import { Summary } from "@/components/Summary";
 import { Experience } from "@/components/Experience";
 import { Education } from "@/components/Education";
+import { Skills } from "@/components/Skills";
+import { Languages } from "@/components/Languages";
 import { ArrowUpCircle, Share2, Download, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, Suspense } from "react";
@@ -107,6 +109,8 @@ const Index = () => {
             <Summary />
             <Experience />
             <Education />
+            <Skills />
+            <Languages />
           </motion.div>
         </AnimatePresence>
       </Suspense>

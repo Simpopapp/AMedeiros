@@ -33,7 +33,6 @@ export const PrintableLayout = ({ children }: PrintableLayoutProps) => {
   };
 
   const openWebVersion = () => {
-    // Using window.open to ensure it opens in a new tab/window
     window.open(window.location.origin, '_blank');
     toast.success("Abrindo versão web...");
   };
@@ -54,40 +53,44 @@ export const PrintableLayout = ({ children }: PrintableLayoutProps) => {
           Voltar
         </Button>
 
-        <Button
-          variant="outline"
-          onClick={handleShare}
-          className="bg-white hover:bg-gray-100"
-        >
-          <Share2 className="mr-2 h-4 w-4" />
-          Compartilhar
-        </Button>
-        
-        <Button
-          onClick={() => window.print()}
-          variant="outline"
-          className="bg-white hover:bg-gray-100"
-        >
-          <Printer className="mr-2 h-4 w-4" />
-          Imprimir
-        </Button>
-        
-        <Button
-          onClick={handleDownloadPDF}
-          className="bg-resume-accent hover:bg-resume-accent/90 text-white"
-        >
-          <Download className="mr-2 h-4 w-4" />
-          PDF
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            onClick={handleDownloadPDF}
+            className="bg-resume-accent hover:bg-resume-accent/90 text-white"
+          >
+            <Download className="mr-2 h-4 w-4" />
+            PDF
+          </Button>
 
-        <Button
-          onClick={openWebVersion}
-          variant="outline"
-          className="bg-white hover:bg-gray-100"
-        >
-          <Globe2 className="mr-2 h-4 w-4" />
-          Versão Web
-        </Button>
+          <Button
+            onClick={() => window.print()}
+            variant="outline"
+            className="bg-white hover:bg-gray-100"
+          >
+            <Printer className="mr-2 h-4 w-4" />
+            Imprimir
+          </Button>
+        </div>
+
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            onClick={handleShare}
+            className="bg-white hover:bg-gray-100"
+          >
+            <Share2 className="mr-2 h-4 w-4" />
+            Compartilhar
+          </Button>
+
+          <Button
+            onClick={openWebVersion}
+            variant="outline"
+            className="bg-white hover:bg-gray-100"
+          >
+            <Globe2 className="mr-2 h-4 w-4" />
+            Versão Web
+          </Button>
+        </div>
       </motion.div>
       
       {children}

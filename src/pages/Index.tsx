@@ -2,7 +2,7 @@ import { Hero } from "@/components/Hero";
 import { Summary } from "@/components/Summary";
 import { Experience } from "@/components/Experience";
 import { Education } from "@/components/Education";
-import { ScrollToTop } from "lucide-react";
+import { ArrowUpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -43,7 +43,7 @@ const Index = () => {
           }`}
           onClick={scrollToTop}
         >
-          <ScrollToTop className="h-5 w-5" />
+          <ArrowUpCircle className="h-5 w-5" />
         </Button>
         
         <Button

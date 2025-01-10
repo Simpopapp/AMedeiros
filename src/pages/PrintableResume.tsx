@@ -23,7 +23,7 @@ const PrintableResume = () => {
         transition={{ duration: 0.5 }}
         className="print:m-0"
       >
-        <section className="w-full max-w-[210mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
           <div className="flex-grow">
             <SkillsSection />
@@ -31,7 +31,7 @@ const PrintableResume = () => {
           <PrintableFooter pageNumber={1} />
         </section>
 
-        <section className="w-full max-w-[210mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <h2 className="text-3xl font-bold text-resume-primary mb-8">
             Experiência Profissional
           </h2>
@@ -43,7 +43,7 @@ const PrintableResume = () => {
           <PrintableFooter pageNumber={2} />
         </section>
 
-        <section className="w-full max-w-[210mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <div className="flex-grow">
             <ExperienceSection page={2} />
           </div>
@@ -51,7 +51,7 @@ const PrintableResume = () => {
           <PrintableFooter pageNumber={3} />
         </section>
 
-        <section className="w-full max-w-[210mm] mx-auto p-12 flex flex-col bg-white print:shadow-none shadow-lg">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-12 flex flex-col bg-white print:shadow-none shadow-lg">
           <div className="flex-grow space-y-12">
             <div>
               <EducationSection />
@@ -95,42 +95,6 @@ const PrintableResume = () => {
           <PrintableFooter pageNumber={4} />
         </section>
       </motion.div>
-
-      <style>
-        {`
-          @media print {
-            @page {
-              size: A4;
-              margin: 0;
-            }
-            
-            body {
-              margin: 0;
-              padding: 0;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-
-            section {
-              page-break-after: always;
-              break-after: page;
-              min-height: 100vh;
-              margin: 0 !important;
-              padding: 2rem !important;
-              box-sizing: border-box;
-            }
-
-            section:last-child {
-              page-break-after: auto;
-              break-after: auto;
-            }
-
-            .no-print {
-              display: none !important;
-            }
-          }
-        `}
-      </style>
     </PrintableLayout>
   );
 };

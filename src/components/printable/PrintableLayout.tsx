@@ -1,13 +1,16 @@
-import { Download, Printer, Share2 } from "lucide-react";
+import { Download, Printer, Share2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 interface PrintableLayoutProps {
   children: React.ReactNode;
 }
 
 export const PrintableLayout = ({ children }: PrintableLayoutProps) => {
+  const navigate = useNavigate();
+  
   const handleDownloadPDF = () => {
     toast.success("Preparando PDF para download...");
     window.print();
@@ -36,6 +39,15 @@ export const PrintableLayout = ({ children }: PrintableLayoutProps) => {
         animate={{ opacity: 1, y: 0 }}
         className="fixed top-4 right-4 z-50 no-print flex gap-2"
       >
+        <Button
+          variant="outline"
+          onClick={() => navigate('/')}
+          className="bg-white hover:bg-gray-100"
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Voltar
+        </Button>
+
         <Button
           variant="outline"
           onClick={handleShare}

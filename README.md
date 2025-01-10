@@ -1,69 +1,69 @@
-# Welcome to your Lovable project
+# Plano de Implementação do Currículo Digital
 
-## Project info
+## Visão Geral
+Este projeto é um currículo digital profissional para Alessandra Medeiros de Oliveira, destacando sua experiência como Diretora Comercial e sua trajetória profissional impressionante.
 
-**URL**: https://lovable.dev/projects/8675cd35-61d4-4da8-87db-886e5d2253f9
+## Plano de 5 Etapas
 
-## How can I edit this code?
+### Etapa 1: Hero Section e Identidade Visual
+- Implementar hero section com foto profissional
+- Criar cabeçalho com nome e cargo atual
+- Adicionar informações de contato e localização
+- Estabelecer a paleta de cores:
+  - Primary: #1A1F2C (deep purple)
+  - Secondary: #F1F0FB (soft gray)
+  - Accent: #9b87f5 (rich purple)
+  - Text: #4A5568 (neutral gray)
 
-There are several ways of editing your application.
+### Etapa 2: Resumo Profissional
+- Desenvolver seção de resumo com animações suaves
+- Implementar layout responsivo para o texto
+- Adicionar ícones relevantes da biblioteca Lucide
+- Criar transições elegantes entre seções
 
-**Use Lovable**
+### Etapa 3: Experiência Profissional
+- Criar cards interativos para cada posição
+- Implementar timeline visual
+- Adicionar detalhes de responsabilidades
+- Incluir badges para período de cada cargo
+- Organizar informações em ordem cronológica reversa
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8675cd35-61d4-4da8-87db-886e5d2253f9) and start prompting.
+### Etapa 4: Educação e Competências
+- Desenvolver seção de formação acadêmica
+- Criar componente para destacar habilidades-chave
+- Implementar layout grid responsivo
+- Adicionar animações de entrada
 
-Changes made via Lovable will be committed automatically to this repo.
+### Etapa 5: Refinamentos e Otimizações
+- Implementar dark mode
+- Adicionar microinterações
+- Otimizar performance
+- Realizar testes de responsividade
+- Ajustar espaçamentos e tipografia
+- Adicionar meta tags SEO
 
-**Use your preferred IDE**
+## Como Executar Cada Etapa
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Para avançar no desenvolvimento, simplesmente envie a mensagem correspondente à etapa desejada:
+- "passo 1 agora" - Implementa a hero section e identidade visual
+- "passo 2 agora" - Desenvolve a seção de resumo profissional
+- "passo 3 agora" - Cria a seção de experiência profissional
+- "passo 4 agora" - Implementa educação e competências
+- "passo 5 agora" - Realiza os refinamentos finais
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Tecnologias Utilizadas
+- React com TypeScript
+- Tailwind CSS para estilização
+- Lucide React para ícones
+- Shadcn/ui para componentes
+- Animações personalizadas
 
-Follow these steps:
+## Como Executar o Projeto
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/8675cd35-61d4-4da8-87db-886e5d2253f9) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## Deployment
+O projeto pode ser publicado através da plataforma Lovable ou implantado em qualquer host que suporte React.

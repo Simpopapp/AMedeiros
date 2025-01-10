@@ -16,22 +16,30 @@ const PrintableResume = () => {
         className="print:m-0"
       >
         {/* Página 1: Cabeçalho e Resumo */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
-          <PrintableHeader />
-          <SkillsSection />
-          <PrintableFooter pageNumber={1} />
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
+          <div className="flex-1 flex flex-col h-full">
+            <PrintableHeader />
+            <div className="flex-1 py-8">
+              <SkillsSection />
+            </div>
+            <PrintableFooter pageNumber={1} />
+          </div>
         </section>
 
         {/* Página 2: Experiência */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
-          <ExperienceSection />
-          <PrintableFooter pageNumber={2} />
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
+          <div className="flex-1 flex flex-col h-full">
+            <ExperienceSection />
+            <PrintableFooter pageNumber={2} />
+          </div>
         </section>
 
         {/* Página 3: Educação e Competências */}
-        <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
-          <EducationSection />
-          <PrintableFooter pageNumber={3} />
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
+          <div className="flex-1 flex flex-col h-full">
+            <EducationSection />
+            <PrintableFooter pageNumber={3} />
+          </div>
         </section>
       </motion.div>
 
@@ -52,15 +60,34 @@ const PrintableResume = () => {
 
             .page-break-before {
               page-break-before: always;
+              break-after: page;
+            }
+
+            section {
+              break-inside: avoid;
+              height: 297mm;
+              width: 210mm;
+              position: relative;
+              overflow: hidden;
             }
 
             .no-print {
               display: none !important;
             }
+          }
 
-            section {
-              break-inside: avoid;
-            }
+          /* Ensure consistent sizing even in preview */
+          section {
+            box-sizing: border-box;
+            min-height: 297mm;
+            width: 210mm;
+            position: relative;
+            overflow: hidden;
+          }
+
+          /* Flex container for content */
+          .flex-1 {
+            flex: 1 1 auto;
           }
         `}
       </style>

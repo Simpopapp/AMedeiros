@@ -26,67 +26,47 @@
     --radius: 0.5rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+  html {
+    @apply scroll-smooth;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  html {
-    @apply scroll-smooth;
-  }
-
   h1 {
     @apply text-heading-1 font-bold text-resume-primary mb-6;
+    text-wrap: balance;
   }
 
   h2 {
     @apply text-heading-2 font-semibold text-resume-primary mb-4;
+    text-wrap: balance;
   }
 
   h3 {
     @apply text-heading-3 font-medium text-resume-primary mb-3;
+    text-wrap: balance;
   }
 
   p {
     @apply text-body text-resume-text mb-4;
+    text-wrap: pretty;
   }
 }
 
 /* Modern design utilities */
 .glass-card {
   @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
+  backdrop-filter: blur(12px);
 }
 
 .modern-shadow {
-  @apply shadow-modern hover:shadow-modern-lg transition-shadow duration-300;
+  @apply shadow-modern hover:shadow-modern-lg transition-all duration-300;
 }
 
 .gradient-border {
@@ -131,6 +111,43 @@
   @apply bg-resume-accent/50 rounded-full hover:bg-resume-accent/70 transition-colors;
 }
 
+/* Modern transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+/* Enhanced animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
 /* Print styles */
 @media print {
   @page {
@@ -156,16 +173,4 @@
   .no-print {
     display: none !important;
   }
-}
-
-/* Loading states */
-.loading-skeleton {
-  @apply animate-pulse bg-gray-200 rounded;
-}
-
-/* Modern transitions */
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
 }

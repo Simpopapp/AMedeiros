@@ -35,14 +35,14 @@ export default {
         foreground: "hsl(var(--foreground))",
         resume: {
           primary: "#1A1F2C",
-          secondary: "#F1F0FB",
+          secondary: "#221F26",
           accent: "#9b87f5",
-          text: "#4A5568",
+          text: "#E2E8F0",
           light: "#D6BCFA",
-          neutral: "#8E9196",
+          neutral: "#94A3B8",
           gradient: {
             start: "#1a1f2c",
-            end: "#2d3748",
+            end: "#221F26",
           },
         },
         primary: {
@@ -76,8 +76,8 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-soft': 'linear-gradient(to right, #243949 0%, #517fa4 100%)',
-        'gradient-modern': 'linear-gradient(135deg, #1a1f2c 0%, #2d3748 100%)',
+        'gradient-soft': 'linear-gradient(to right, #1A1F2C 0%, #221F26 100%)',
+        'gradient-modern': 'linear-gradient(135deg, #1a1f2c 0%, #221F26 100%)',
       },
       borderRadius: {
         lg: "var(--radius)",

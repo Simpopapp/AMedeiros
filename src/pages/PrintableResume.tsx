@@ -23,7 +23,7 @@ const PrintableResume = () => {
         transition={{ duration: 0.5 }}
         className="print:m-0"
       >
-        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
+        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
           <div className="flex-grow">
             <SkillsSection />
@@ -31,7 +31,8 @@ const PrintableResume = () => {
           <PrintableFooter pageNumber={1} />
         </section>
 
-        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
+        {/* Página 2: Experiência Parte 1 */}
+        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
           <h2 className="text-3xl font-bold text-resume-primary mb-8">
             Experiência Profissional
           </h2>
@@ -39,23 +40,28 @@ const PrintableResume = () => {
           <div className="flex-grow">
             <ExperienceSection page={1} />
           </div>
+          <Separator className="my-6 bg-resume-primary/10" />
           <PrintableFooter pageNumber={2} />
         </section>
 
-        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
+        {/* Página 3: Experiência Parte 2 */}
+        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
           <div className="flex-grow">
             <ExperienceSection page={2} />
           </div>
+          <Separator className="my-6 bg-resume-primary/10" />
           <PrintableFooter pageNumber={3} />
         </section>
 
-        <section className="w-[210mm] min-h-[297mm] mx-auto p-[20mm] flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
+        {/* Página 4: Educação e Idiomas */}
+        <section className="w-[210mm] h-[297mm] mx-auto p-12 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
           <div className="flex-grow space-y-12">
             <div>
               <EducationSection />
               <Separator className="my-12 bg-resume-primary/10" />
             </div>
             
+            {/* Seção de Idiomas */}
             <div className="pb-8">
               <div className="flex items-center gap-3 mb-6">
                 <Globe2 className="h-6 w-6 text-resume-accent stroke-[1.5]" />
@@ -89,6 +95,7 @@ const PrintableResume = () => {
               </div>
             </div>
           </div>
+          <Separator className="my-8 bg-resume-primary/10" />
           <PrintableFooter pageNumber={4} />
         </section>
       </motion.div>
@@ -96,14 +103,35 @@ const PrintableResume = () => {
       <style>
         {`
           @media print {
+            @page {
+              size: A4;
+              margin: 0;
+            }
+            
             body {
               margin: 0;
               padding: 0;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
             }
-            
+
+            .page-break-before {
+              page-break-before: always;
+            }
+
+            .no-print {
+              display: none !important;
+            }
+
             section {
-              margin: 0 !important;
-              padding: 20mm !important;
+              break-inside: avoid;
+              height: 297mm;
+              width: 210mm;
+              page-break-after: always;
+            }
+
+            section:last-child {
+              page-break-after: auto;
             }
           }
         `}

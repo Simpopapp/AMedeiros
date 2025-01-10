@@ -5,7 +5,7 @@ import { Education } from "@/components/Education";
 import { ArrowUpCircle, Share2, Download, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, Suspense } from "react";
-import { useToast } from "@/components/ui/toast";
+import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   DropdownMenu,

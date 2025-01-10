@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
+import { OrbitControls, Stars, Text } from '@react-three/drei';
 import { useRef } from 'react';
 import * as THREE from 'three';
 
@@ -8,8 +8,19 @@ const FloatingText = () => {
 
   return (
     <mesh position={[0, 0, -5]}>
-      <textGeometry args={['A.M.O', { size: 1, height: 0.1 }]} />
-      <meshStandardMaterial color="#9b87f5" />
+      <Text
+        color="#9b87f5"
+        fontSize={1}
+        maxWidth={200}
+        lineHeight={1}
+        letterSpacing={0.02}
+        textAlign="center"
+        font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
+        anchorX="center"
+        anchorY="middle"
+      >
+        A.M.O
+      </Text>
     </mesh>
   );
 };

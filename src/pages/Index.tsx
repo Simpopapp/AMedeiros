@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { Summary } from "@/components/Summary";
 import { Experience } from "@/components/Experience";
 import { Education } from "@/components/Education";
+import { Timeline } from "@/components/Timeline";
 import { ArrowUpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -29,6 +30,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Hero />
+      <Timeline />
       <Summary />
       <Experience />
       <Education />

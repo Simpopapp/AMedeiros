@@ -4,7 +4,7 @@ import { Experience } from "@/components/Experience";
 import { Education } from "@/components/Education";
 import { Skills } from "@/components/Skills";
 import { Languages } from "@/components/Languages";
-import { ArrowUpCircle, Share2, Download, Printer, ArrowRight } from "lucide-react";
+import { ArrowUpCircle, Share2, Download, Printer, ArrowRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, Suspense } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -96,6 +96,10 @@ const Index = () => {
     navigate('/printable');
   };
 
+  const handleLinkedInClick = () => {
+    window.open('https://www.linkedin.com/in/alessandra-medeiros-de-oliveira-698a6a15/', '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Suspense fallback={
@@ -119,6 +123,16 @@ const Index = () => {
 
             {/* Fixed Action Buttons Container */}
             <div className="fixed bottom-8 right-8 flex flex-col items-end gap-4 z-50">
+              {/* LinkedIn Button */}
+              <Button
+                onClick={handleLinkedInClick}
+                variant="outline"
+                className="bg-[#0077B5] text-white hover:bg-[#0077B5]/80 shadow-lg transition-all duration-300 rounded-full flex items-center gap-2 px-6"
+              >
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
+              </Button>
+
               {/* PDF Version Button */}
               <Button
                 onClick={handlePrintableView}

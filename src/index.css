@@ -108,38 +108,37 @@
   @apply bg-resume-accent/50 rounded-full hover:bg-resume-accent/70 transition-colors;
 }
 
-/* Enhanced print optimization */
+/* Print styles */
 @media print {
   @page {
     size: A4;
     margin: 0;
   }
 
-  body {
+  html, body {
+    width: 210mm;
+    height: 297mm;
     margin: 0;
     padding: 0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
   }
 
-  .page-break-after {
-    page-break-after: always;
-    break-after: page;
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   section {
-    page-break-inside: avoid;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 !important;
+    padding: 2rem !important;
     break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  h1, h2, h3 {
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-
-  img {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  .print\\:break-before-page {
+    break-before: page;
+    page-break-before: always;
   }
 
   .no-print {

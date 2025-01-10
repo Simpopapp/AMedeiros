@@ -23,7 +23,7 @@ const PrintableResume = () => {
         transition={{ duration: 0.5 }}
         className="print:m-0"
       >
-        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
           <div className="flex-grow">
             <SkillsSection />
@@ -31,8 +31,7 @@ const PrintableResume = () => {
           <PrintableFooter pageNumber={1} />
         </section>
 
-        {/* Página 2: Experiência Parte 1 */}
-        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 print:break-before-page">
           <h2 className="text-3xl font-bold text-resume-primary mb-8">
             Experiência Profissional
           </h2>
@@ -44,8 +43,7 @@ const PrintableResume = () => {
           <PrintableFooter pageNumber={2} />
         </section>
 
-        {/* Página 3: Experiência Parte 2 */}
-        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 print:break-before-page">
           <div className="flex-grow">
             <ExperienceSection page={2} />
           </div>
@@ -53,15 +51,13 @@ const PrintableResume = () => {
           <PrintableFooter pageNumber={3} />
         </section>
 
-        {/* Página 4: Educação e Idiomas */}
-        <section className="w-[210mm] h-[297mm] mx-auto p-12 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
+        <section className="w-[210mm] min-h-[297mm] mx-auto p-12 flex flex-col bg-white print:shadow-none shadow-lg print:break-before-page">
           <div className="flex-grow space-y-12">
             <div>
               <EducationSection />
               <Separator className="my-12 bg-resume-primary/10" />
             </div>
             
-            {/* Seção de Idiomas */}
             <div className="pb-8">
               <div className="flex items-center gap-3 mb-6">
                 <Globe2 className="h-6 w-6 text-resume-accent stroke-[1.5]" />
@@ -104,7 +100,7 @@ const PrintableResume = () => {
         {`
           @media print {
             @page {
-              size: A4;
+              size: A4 portrait;
               margin: 0;
             }
             
@@ -115,23 +111,20 @@ const PrintableResume = () => {
               print-color-adjust: exact !important;
             }
 
-            .page-break-before {
+            section {
+              margin: 0 !important;
+              padding: 2rem !important;
+              break-inside: avoid;
+              page-break-inside: avoid;
+            }
+
+            .print\\:break-before-page {
+              break-before: page;
               page-break-before: always;
             }
 
             .no-print {
               display: none !important;
-            }
-
-            section {
-              break-inside: avoid;
-              height: 297mm;
-              width: 210mm;
-              page-break-after: always;
-            }
-
-            section:last-child {
-              page-break-after: auto;
             }
           }
         `}

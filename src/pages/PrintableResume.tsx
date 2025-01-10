@@ -16,22 +16,39 @@ const PrintableResume = () => {
         className="print:m-0"
       >
         {/* Página 1: Cabeçalho e Resumo */}
-        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
+        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
-          <SkillsSection />
+          <div className="flex-grow overflow-auto">
+            <SkillsSection />
+          </div>
           <PrintableFooter pageNumber={1} />
         </section>
 
-        {/* Página 2: Experiência */}
-        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
-          <ExperienceSection />
+        {/* Página 2: Experiência Parte 1 */}
+        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
+          <h2 className="text-3xl font-bold text-resume-primary mb-8">
+            Experiência Profissional
+          </h2>
+          <div className="flex-grow overflow-auto">
+            <ExperienceSection page={1} />
+          </div>
           <PrintableFooter pageNumber={2} />
         </section>
 
-        {/* Página 3: Educação e Competências */}
-        <section className="w-[210mm] min-h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
-          <EducationSection />
+        {/* Página 3: Experiência Parte 2 */}
+        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
+          <div className="flex-grow overflow-auto">
+            <ExperienceSection page={2} />
+          </div>
           <PrintableFooter pageNumber={3} />
+        </section>
+
+        {/* Página 4: Educação e Competências */}
+        <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
+          <div className="flex-grow overflow-auto">
+            <EducationSection />
+          </div>
+          <PrintableFooter pageNumber={4} />
         </section>
       </motion.div>
 
@@ -60,8 +77,13 @@ const PrintableResume = () => {
 
             section {
               break-inside: avoid;
-              min-height: 297mm;
+              height: 297mm;
               width: 210mm;
+              page-break-after: always;
+            }
+
+            section:last-child {
+              page-break-after: auto;
             }
           }
         `}

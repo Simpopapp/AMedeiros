@@ -27,39 +27,19 @@
   }
 
   html {
-    @apply scroll-smooth;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    @apply scroll-smooth;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-
-  h1 {
-    @apply text-heading-1 font-bold text-resume-primary mb-6;
-    text-wrap: balance;
-  }
-
-  h2 {
-    @apply text-heading-2 font-semibold text-resume-primary mb-4;
-    text-wrap: balance;
-  }
-
-  h3 {
-    @apply text-heading-3 font-medium text-resume-primary mb-3;
-    text-wrap: balance;
-  }
-
-  p {
-    @apply text-body text-resume-text mb-4;
-    text-wrap: pretty;
-  }
 }
 
-/* Modern design utilities */
+/* Enhanced Modern Design Utilities */
 .glass-card {
   @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
   backdrop-filter: blur(12px);
@@ -77,61 +57,17 @@
   }
 }
 
-.section-padding {
-  @apply py-section px-6 md:px-12 lg:px-24;
-}
-
-.content-spacing {
-  @apply space-y-content;
-}
-
-.card-gradient {
-  @apply bg-gradient-modern backdrop-blur-sm;
-}
-
-/* Typography utilities */
-.heading-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-resume-accent to-resume-light;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Optimized scroll behavior */
-::-webkit-scrollbar {
-  @apply w-2;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-resume-accent/50 rounded-full hover:bg-resume-accent/70 transition-colors;
-}
-
-/* Modern transitions */
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-}
-
-/* Enhanced animations */
+/* Optimized Animations */
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
-  0% {
+  0%, 100% {
     transform: translateY(0px);
   }
   50% {
     transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
   }
 }
 
@@ -148,7 +84,28 @@
   }
 }
 
-/* Print styles */
+/* Enhanced Scroll Behavior */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-resume-accent/50 rounded-full hover:bg-resume-accent/70 transition-colors;
+}
+
+/* Performance Optimized Transitions */
+.transition-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+/* Print Optimizations */
 @media print {
   @page {
     size: A4;
@@ -162,12 +119,6 @@
     padding: 0;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
-
-  section {
-    break-inside: avoid;
-    page-break-inside: avoid;
   }
 
   .no-print {

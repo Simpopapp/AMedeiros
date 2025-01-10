@@ -1,12 +1,27 @@
 import { User, Mail, MapPin, Briefcase, ArrowRight } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { fadeInUp, staggerContainer, scaleIn } from "@/utils/animations";
 
 export const Hero = () => {
   const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
-  const y = useTransform(scrollY, [0, 300], [0, 50]);
+  
+  // Optimized animations with spring physics
+  const springConfig = { stiffness: 100, damping: 30, mass: 0.5 };
+  
+  const opacity = useSpring(
+    useTransform(scrollY, [0, 300], [1, 0]),
+    springConfig
+  );
+  
+  const scale = useSpring(
+    useTransform(scrollY, [0, 300], [1, 0.8]),
+    springConfig
+  );
+  
+  const y = useSpring(
+    useTransform(scrollY, [0, 300], [0, 50]),
+    springConfig
+  );
 
   return (
     <motion.section 
@@ -16,7 +31,7 @@ export const Hero = () => {
       style={{ opacity, scale, y }}
       className="min-h-[90vh] bg-gradient-modern flex flex-col justify-center items-center p-8 relative overflow-hidden"
     >
-      {/* Dynamic Background Pattern */}
+      {/* Optimized Background Pattern */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ 
@@ -26,15 +41,16 @@ export const Hero = () => {
         transition={{ 
           duration: 8,
           repeat: Infinity,
-          repeatType: "reverse"
+          repeatType: "reverse",
+          ease: "easeInOut"
         }}
-        className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzBoLTZWMGg2djMwem0tNiAwSDI0VjBoNnYzMHpNMjQgMzBoLTZWMGg2djMweiIvPjwvZz48L2c+PC9zdmc+')] opacity-10"
+        className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzBoLTZWMGg2djMwem0tNiAwSDI0VjBoNnYzMHpNMjQgMzBoLTZWMGg2djMweiIvPjwvZz48L2c+PC9zdmc+')] opacity-10 transition-gpu"
       />
       
-      {/* Content */}
+      {/* Content with Enhanced Performance */}
       <div className="relative z-10 max-w-4xl w-full">
         <motion.div 
-          className="flex flex-col md:flex-row items-center gap-12 backdrop-blur-sm bg-white/5 rounded-2xl p-8 shadow-modern-xl border border-white/10 hover:border-white/20 transition-all duration-500"
+          className="flex flex-col md:flex-row items-center gap-12 backdrop-blur-sm bg-white/5 rounded-2xl p-8 shadow-modern-xl border border-white/10 hover:border-white/20 transition-all duration-500 transition-gpu"
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
@@ -45,7 +61,7 @@ export const Hero = () => {
             transition={{ duration: 0.5 }}
           >
             <motion.div 
-              className="absolute -inset-1 bg-gradient-to-r from-resume-accent to-resume-light rounded-full blur opacity-50 group-hover:opacity-75 transition duration-500"
+              className="absolute -inset-1 bg-gradient-to-r from-resume-accent to-resume-light rounded-full blur opacity-50 group-hover:opacity-75 transition duration-500 transition-gpu"
               animate={{
                 scale: [1, 1.1, 1],
                 opacity: [0.5, 0.7, 0.5],
@@ -54,13 +70,15 @@ export const Hero = () => {
                 duration: 3,
                 repeat: Infinity,
                 repeatType: "reverse",
+                ease: "easeInOut"
               }}
             />
-            <div className="relative w-48 h-48 rounded-full overflow-hidden shadow-xl border-4 border-white/20 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative w-48 h-48 rounded-full overflow-hidden shadow-xl border-4 border-white/20 group-hover:scale-105 transition-transform duration-300 transition-gpu">
               <img
                 src="/lovable-uploads/0f0bddb9-9136-4122-a863-4751fe7f38e9.png"
                 alt="Alessandra Medeiros de Oliveira"
                 className="w-full h-full object-cover"
+                loading="eager"
               />
             </div>
           </motion.div>
@@ -96,14 +114,14 @@ export const Hero = () => {
             >
               <motion.div 
                 whileHover={{ y: -3, scale: 1.05 }}
-                className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full shadow-modern hover:shadow-modern-lg transition-all duration-300 backdrop-blur-sm"
+                className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full shadow-modern hover:shadow-modern-lg transition-all duration-300 backdrop-blur-sm transition-gpu"
               >
                 <MapPin className="w-5 h-5 text-resume-light" />
                 <span>São Paulo, Brazil</span>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -3, scale: 1.05 }}
-                className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full shadow-modern hover:shadow-modern-lg transition-all duration-300 backdrop-blur-sm"
+                className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full shadow-modern hover:shadow-modern-lg transition-all duration-300 backdrop-blur-sm transition-gpu"
               >
                 <Mail className="w-5 h-5 text-resume-light" />
                 <span>contato@alessandra.com</span>
@@ -111,7 +129,7 @@ export const Hero = () => {
               <motion.a
                 href="#experience"
                 whileHover={{ x: 5, scale: 1.05 }}
-                className="flex items-center gap-2 bg-resume-accent/80 px-6 py-2 rounded-full shadow-modern hover:shadow-modern-lg transition-all duration-300 text-white font-medium group"
+                className="flex items-center gap-2 bg-resume-accent/80 px-6 py-2 rounded-full shadow-modern hover:shadow-modern-lg transition-all duration-300 text-white font-medium group transition-gpu"
               >
                 Ver Experiência
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -15,21 +15,21 @@ const PrintableResume = () => {
     { name: "Espanhol", level: "Intermediário", proficiency: 75 }
   ];
 
-  const certifications = [
+  const achievements = [
     {
-      title: "Gestão Estratégica de Negócios",
-      institution: "FGV",
-      year: "2022"
+      title: "Desenvolvimento de Marca Própria",
+      description: "Planejamento e execução de estratégias de marca própria no Oba Hortifruti",
+      year: "2019-Atual"
     },
     {
-      title: "Liderança e Gestão de Equipes",
-      institution: "HSM University",
-      year: "2021"
+      title: "Expansão Internacional",
+      description: "Gestão de operações internacionais e importação na Borges International Group",
+      year: "2015-2018"
     },
     {
-      title: "Negociação Avançada",
-      institution: "Harvard Business School Online",
-      year: "2020"
+      title: "Crescimento de Market Share",
+      description: "Liderança na conquista de 4% do mercado brasileiro na Barilla em apenas um ano",
+      year: "2013-2014"
     }
   ];
 
@@ -121,27 +121,27 @@ const PrintableResume = () => {
               <div className="flex items-center gap-3 mb-6">
                 <Award className="h-6 w-6 text-resume-accent" />
                 <h2 className="text-2xl font-bold text-resume-primary">
-                  Certificações e Cursos
+                  Principais Conquistas
                 </h2>
               </div>
               
               <div className="grid grid-cols-1 gap-4">
-                {certifications.map((cert) => (
+                {achievements.map((achievement) => (
                   <div
-                    key={cert.title}
+                    key={achievement.title}
                     className="bg-resume-secondary/50 p-4 rounded-lg border border-resume-primary/5"
                   >
                     <div className="flex justify-between items-start">
-                      <div>
+                      <div className="flex-1">
                         <h3 className="text-lg font-semibold text-resume-primary">
-                          {cert.title}
+                          {achievement.title}
                         </h3>
                         <p className="text-sm text-resume-text mt-1">
-                          {cert.institution}
+                          {achievement.description}
                         </p>
                       </div>
-                      <span className="text-resume-accent text-sm font-medium">
-                        {cert.year}
+                      <span className="text-resume-accent text-sm font-medium ml-4 whitespace-nowrap">
+                        {achievement.year}
                       </span>
                     </div>
                   </div>

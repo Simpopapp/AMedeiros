@@ -23,124 +23,137 @@ const PrintableResume = () => {
 
       {/* Page 1: Header and Summary */}
       <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8">
-        <div className="flex items-center gap-8 mb-12">
-          <div className="w-40 h-40 rounded-full overflow-hidden">
-            <img
-              src="/lovable-uploads/0f0bddb9-9136-4122-a863-4751fe7f38e9.png"
-              alt="Alessandra Medeiros de Oliveira"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <h1 className="text-4xl font-bold text-resume-primary mb-4">
-              Alessandra Medeiros de Oliveira
-            </h1>
-            <div className="flex items-center gap-2 text-resume-accent mb-4">
-              <Briefcase className="w-5 h-5" />
-              <h2 className="text-xl">Diretora Comercial</h2>
+        <header className="mb-8">
+          <div className="flex items-center gap-8">
+            <div className="w-40 h-40 rounded-full overflow-hidden">
+              <img
+                src="/lovable-uploads/0f0bddb9-9136-4122-a863-4751fe7f38e9.png"
+                alt="Alessandra Medeiros de Oliveira"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="flex flex-col gap-2 text-resume-text">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                <span>São Paulo, Brazil</span>
+            <div>
+              <h1 className="text-4xl font-bold text-resume-primary mb-4">
+                Alessandra Medeiros de Oliveira
+              </h1>
+              <div className="flex items-center gap-2 text-resume-accent mb-4">
+                <Briefcase className="w-5 h-5" />
+                <h2 className="text-xl">Diretora Comercial</h2>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>contato@alessandra.com</span>
+              <div className="flex flex-col gap-2 text-resume-text">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  <span>São Paulo, Brazil</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <span>contato@alessandra.com</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </header>
 
-        <div className="bg-resume-secondary p-6 rounded-lg mb-8">
-          <h3 className="text-2xl font-bold text-resume-primary mb-4">Resumo Profissional</h3>
-          <p className="text-resume-text mb-4">
-            Com mais de duas décadas em gestão comercial, na Indústria e varejo, 
-            dedico-me atualmente à expansão e fortalecimento das categorias de 
-            produtos no Oba Hortifruti.
-          </p>
-          <p className="text-resume-text">
-            A condução dos negócios nacionais e internacionais, desenvolvimento 
-            de marca própria e gestão estratégica de produtos, me proporcionaram 
-            uma visão global e competências profundas em negociações e parcerias comerciais.
-          </p>
-        </div>
+        <main className="flex-grow">
+          <div className="bg-resume-secondary p-6 rounded-lg mb-8">
+            <h3 className="text-2xl font-bold text-resume-primary mb-4">Resumo Profissional</h3>
+            <p className="text-resume-text mb-4">
+              Com mais de duas décadas em gestão comercial, na Indústria e varejo, 
+              dedico-me atualmente à expansão e fortalecimento das categorias de 
+              produtos no Oba Hortifruti.
+            </p>
+            <p className="text-resume-text">
+              A condução dos negócios nacionais e internacionais, desenvolvimento 
+              de marca própria e gestão estratégica de produtos, me proporcionaram 
+              uma visão global e competências profundas em negociações e parcerias comerciais.
+            </p>
+          </div>
+        </main>
 
-        <div className="page-break-after"></div>
+        <footer className="mt-auto pt-8 text-center text-resume-text">
+          <p>Página 1 de 3</p>
+        </footer>
       </section>
 
       {/* Page 2: Experience */}
       <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8">
-        <h2 className="text-3xl font-bold text-resume-primary mb-8 flex items-center gap-2">
-          <Briefcase className="h-8 w-8 text-resume-accent" />
-          Experiência Profissional
-        </h2>
+        <header className="mb-8">
+          <h2 className="text-3xl font-bold text-resume-primary flex items-center gap-2">
+            <Briefcase className="h-8 w-8 text-resume-accent" />
+            Experiência Profissional
+          </h2>
+        </header>
 
-        <div className="space-y-6">
-          <div className="bg-resume-secondary p-6 rounded-lg">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h3 className="text-xl font-bold text-resume-primary">Oba Hortifruti</h3>
-                <p className="text-lg text-resume-text">Diretora comercial</p>
+        <main className="flex-grow">
+          <div className="space-y-6">
+            {/* Oba Hortifruti */}
+            <div className="bg-resume-secondary p-6 rounded-lg">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-resume-primary">Oba Hortifruti</h3>
+                  <p className="text-lg text-resume-text">Diretora comercial</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-resume-accent">2019 - Presente</p>
+                  <p className="text-sm text-resume-text">Campinas e Região, Brasil</p>
+                </div>
               </div>
-              <div className="text-right">
-                <p className="text-resume-accent">2019 - Presente</p>
-                <p className="text-sm text-resume-text">Campinas e Região, Brasil</p>
-              </div>
+              <ul className="list-disc list-inside text-resume-text space-y-2 ml-4">
+                <li>Responsável pela área comercial das categorias de mercearia, frios, auto serviço, adega, biscoiteria e padaria</li>
+                <li>Planejamento, negociação e desenvolvimento de marca própria das categorias</li>
+                <li>Negócios internacionais</li>
+                <li>Promoção e coordenação a vendas no varejo</li>
+              </ul>
             </div>
-            <ul className="list-disc list-inside text-resume-text space-y-2 ml-4">
-              <li>Responsável pela área comercial das categorias de mercearia, frios, auto serviço, adega, biscoiteria e padaria</li>
-              <li>Planejamento, negociação e desenvolvimento de marca própria das categorias</li>
-              <li>Negócios internacionais</li>
-              <li>Promoção e coordenação a vendas no varejo</li>
-            </ul>
-          </div>
 
-          <div className="bg-resume-secondary p-6 rounded-lg">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h3 className="text-xl font-bold text-resume-primary">Borges International Group</h3>
-                <p className="text-lg text-resume-text">Diretora geral</p>
+            {/* Borges International Group */}
+            <div className="bg-resume-secondary p-6 rounded-lg">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-xl font-bold text-resume-primary">Borges International Group</h3>
+                  <p className="text-lg text-resume-text">Diretora geral</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-resume-accent">2015 - 2018</p>
+                  <p className="text-sm text-resume-text">São Paulo Area, Brazil</p>
+                </div>
               </div>
-              <div className="text-right">
-                <p className="text-resume-accent">2015 - 2018</p>
-                <p className="text-sm text-resume-text">São Paulo Area, Brazil</p>
-              </div>
+              <ul className="list-disc list-inside text-resume-text space-y-2 ml-4">
+                <li>Responsável pela operação da Subsidiaria Borges no Brasil</li>
+                <li>Reestruturação dos canais de vendas</li>
+                <li>Estruturação de políticas comerciais</li>
+                <li>Fortalecimento de parcerias existentes e prospecção de novos parceiros</li>
+              </ul>
             </div>
-            <ul className="list-disc list-inside text-resume-text space-y-2 ml-4">
-              <li>Responsável pela operação da Subsidiaria Borges no Brasil</li>
-              <li>Reestruturação dos canais de vendas</li>
-              <li>Estruturação de políticas comerciais</li>
-              <li>Fortalecimento de parcerias existentes e prospecção de novos parceiros</li>
-            </ul>
           </div>
-        </div>
+        </main>
 
-        <div className="page-break-after"></div>
+        <footer className="mt-auto pt-8 text-center text-resume-text">
+          <p>Página 2 de 3</p>
+        </footer>
       </section>
 
       {/* Page 3: Skills and Languages */}
       <section className="w-[21cm] min-h-[29.7cm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg">
-        <div className="mb-12">
+        <header className="mb-8">
           <h2 className="text-3xl font-bold text-resume-primary mb-8 flex items-center gap-2">
             <Brain className="h-8 w-8 text-resume-accent" />
-            Competências
+            Competências e Idiomas
           </h2>
-          
-          <div className="grid grid-cols-3 gap-6">
+        </header>
+
+        <main className="flex-grow">
+          <div className="grid grid-cols-3 gap-6 mb-12">
             <div className="bg-resume-secondary p-6 rounded-lg">
               <h3 className="text-xl font-bold text-resume-primary mb-4">Gestão Comercial</h3>
               <ul className="space-y-2 text-resume-text">
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   Negociação
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   Desenvolvimento de Marca
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   Gestão de Equipes
                 </li>
               </ul>
@@ -149,16 +162,13 @@ const PrintableResume = () => {
             <div className="bg-resume-secondary p-6 rounded-lg">
               <h3 className="text-xl font-bold text-resume-primary mb-4">Competências Técnicas</h3>
               <ul className="space-y-2 text-resume-text">
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   Análise de Mercado
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   KPIs Comerciais
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   Gestão de Projetos
                 </li>
               </ul>
@@ -167,29 +177,19 @@ const PrintableResume = () => {
             <div className="bg-resume-secondary p-6 rounded-lg">
               <h3 className="text-xl font-bold text-resume-primary mb-4">Soft Skills</h3>
               <ul className="space-y-2 text-resume-text">
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   Liderança
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   Comunicação
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-resume-accent">•</span>
+                <li className="flex items-center gap-2 before:content-['•'] before:text-resume-accent before:font-bold">
                   Resolução de Problemas
                 </li>
               </ul>
             </div>
           </div>
-        </div>
 
-        <div>
-          <h2 className="text-3xl font-bold text-resume-primary mb-8 flex items-center gap-2">
-            <Globe2 className="h-8 w-8 text-resume-accent" />
-            Idiomas
-          </h2>
-          
           <div className="grid grid-cols-3 gap-6">
             <div className="bg-resume-secondary p-6 rounded-lg">
               <h3 className="text-xl font-bold text-resume-primary mb-2">Português</h3>
@@ -215,31 +215,37 @@ const PrintableResume = () => {
               </div>
             </div>
           </div>
-        </div>
+        </main>
+
+        <footer className="mt-auto pt-8 text-center text-resume-text">
+          <p>Página 3 de 3</p>
+        </footer>
       </section>
 
-      <style jsx global>{`
-        @media print {
-          @page {
-            size: A4;
-            margin: 0;
-          }
-          
-          body {
-            margin: 0;
-            padding: 0;
-          }
+      <style>
+        {`
+          @media print {
+            @page {
+              size: A4;
+              margin: 0;
+            }
+            
+            body {
+              margin: 0;
+              padding: 0;
+            }
 
-          .page-break-after {
-            page-break-after: always;
-            break-after: page;
-          }
+            .page-break-after {
+              page-break-after: always;
+              break-after: page;
+            }
 
-          .no-print {
-            display: none !important;
+            .no-print {
+              display: none !important;
+            }
           }
-        }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

@@ -44,7 +44,7 @@ const PrintableResume = () => {
         {/* Página 1: Cabeçalho e Resumo */}
         <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0">
           <PrintableHeader />
-          <div className="flex-grow overflow-auto">
+          <div className="flex-grow">
             <SkillsSection />
           </div>
           <PrintableFooter pageNumber={1} />
@@ -56,7 +56,7 @@ const PrintableResume = () => {
             Experiência Profissional
           </h2>
           <Separator className="mb-8 bg-resume-primary/10" />
-          <div className="flex-grow overflow-auto">
+          <div className="flex-grow">
             <ExperienceSection page={1} />
           </div>
           <Separator className="my-6 bg-resume-primary/10" />
@@ -65,7 +65,7 @@ const PrintableResume = () => {
 
         {/* Página 3: Experiência Parte 2 */}
         <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg mb-8 print:mb-0 page-break-before">
-          <div className="flex-grow overflow-auto">
+          <div className="flex-grow">
             <ExperienceSection page={2} />
           </div>
           <Separator className="my-6 bg-resume-primary/10" />
@@ -74,34 +74,38 @@ const PrintableResume = () => {
 
         {/* Página 4: Educação, Competências e Idiomas */}
         <section className="w-[210mm] h-[297mm] mx-auto p-8 flex flex-col bg-white print:shadow-none shadow-lg page-break-before">
-          <div className="flex-grow overflow-auto space-y-12">
+          <div className="flex-grow space-y-8">
             <div>
               <EducationSection />
-              <Separator className="my-12 bg-resume-primary/10" />
+              <Separator className="my-8 bg-resume-primary/10" />
             </div>
             
-            {/* Seção de Idiomas */}
-            <div className="mt-12">
-              <div className="flex items-center gap-3 mb-8">
-                <Globe2 className="h-8 w-8 text-resume-accent" />
-                <h2 className="text-3xl font-bold text-resume-primary">
+            {/* Seção de Idiomas Redesenhada */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Globe2 className="h-6 w-6 text-resume-accent" />
+                <h2 className="text-2xl font-bold text-resume-primary">
                   Idiomas
                 </h2>
               </div>
               
-              <div className="grid grid-cols-3 gap-8">
+              <div className="flex gap-4 justify-between">
                 {languages.map((language) => (
                   <div
                     key={language.name}
-                    className="bg-resume-secondary p-6 rounded-lg border border-resume-primary/5 hover:border-resume-accent/20 transition-colors duration-300"
+                    className="flex-1 bg-resume-secondary/50 px-4 py-3 rounded-lg border border-resume-primary/5"
                   >
-                    <h3 className="text-xl font-semibold text-resume-primary mb-2">
-                      {language.name}
-                    </h3>
-                    <p className="text-resume-text mb-4">{language.level}</p>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="text-lg font-semibold text-resume-primary">
+                        {language.name}
+                      </h3>
+                      <span className="text-sm text-resume-text">
+                        {language.level}
+                      </span>
+                    </div>
+                    <div className="w-full bg-white/50 rounded-full h-1.5">
                       <div
-                        className="bg-resume-accent h-2.5 rounded-full transition-all duration-500"
+                        className="bg-resume-accent h-1.5 rounded-full transition-all duration-500"
                         style={{ width: `${language.proficiency}%` }}
                       />
                     </div>
@@ -110,33 +114,33 @@ const PrintableResume = () => {
               </div>
             </div>
 
-            <Separator className="my-12 bg-resume-primary/10" />
+            <Separator className="my-8 bg-resume-primary/10" />
 
             {/* Seção de Certificações */}
-            <div className="mt-12">
-              <div className="flex items-center gap-3 mb-8">
-                <Award className="h-8 w-8 text-resume-accent" />
-                <h2 className="text-3xl font-bold text-resume-primary">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Award className="h-6 w-6 text-resume-accent" />
+                <h2 className="text-2xl font-bold text-resume-primary">
                   Certificações e Cursos
                 </h2>
               </div>
               
-              <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 gap-4">
                 {certifications.map((cert) => (
                   <div
                     key={cert.title}
-                    className="bg-resume-secondary p-6 rounded-lg border border-resume-primary/5 hover:border-resume-accent/20 transition-colors duration-300"
+                    className="bg-resume-secondary/50 p-4 rounded-lg border border-resume-primary/5"
                   >
                     <div className="flex justify-between items-start">
                       <div>
-                        <h3 className="text-xl font-semibold text-resume-primary">
+                        <h3 className="text-lg font-semibold text-resume-primary">
                           {cert.title}
                         </h3>
-                        <p className="text-resume-text mt-1">
+                        <p className="text-sm text-resume-text mt-1">
                           {cert.institution}
                         </p>
                       </div>
-                      <span className="text-resume-accent font-medium">
+                      <span className="text-resume-accent text-sm font-medium">
                         {cert.year}
                       </span>
                     </div>

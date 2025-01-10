@@ -62,6 +62,22 @@
   html {
     @apply scroll-smooth;
   }
+
+  h1 {
+    @apply text-heading-1 font-bold text-resume-primary mb-6;
+  }
+
+  h2 {
+    @apply text-heading-2 font-semibold text-resume-primary mb-4;
+  }
+
+  h3 {
+    @apply text-heading-3 font-medium text-resume-primary mb-3;
+  }
+
+  p {
+    @apply text-body text-resume-text mb-4;
+  }
 }
 
 /* Modern design utilities */
@@ -82,11 +98,24 @@
 }
 
 .section-padding {
-  @apply py-20 px-6 md:px-12 lg:px-24;
+  @apply py-section px-6 md:px-12 lg:px-24;
+}
+
+.content-spacing {
+  @apply space-y-content;
 }
 
 .card-gradient {
   @apply bg-gradient-modern backdrop-blur-sm;
+}
+
+/* Typography utilities */
+.heading-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-resume-accent to-resume-light;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 /* Optimized scroll behavior */

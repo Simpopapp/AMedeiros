@@ -18,6 +18,15 @@ export default {
       },
     },
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '65ch',
+            color: 'var(--tw-prose-body)',
+            lineHeight: '1.75',
+          },
+        },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -99,7 +108,22 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.5s ease-out forwards",
       },
+      spacing: {
+        'section': '4rem',
+        'content': '2.5rem',
+      },
+      fontSize: {
+        'heading-1': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+        'heading-2': ['2rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
+        'heading-3': ['1.5rem', { lineHeight: '1.4', letterSpacing: '0' }],
+        'body-large': ['1.125rem', { lineHeight: '1.75' }],
+        'body': ['1rem', { lineHeight: '1.625' }],
+        'caption': ['0.875rem', { lineHeight: '1.5' }],
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('@tailwindcss/typography'),
+  ],
 } satisfies Config;

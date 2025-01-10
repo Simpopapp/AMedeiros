@@ -20,7 +20,7 @@ export const Hero = () => {
       animate="animate"
       variants={staggerContainer}
       style={{ y }}
-      className="min-h-[90vh] bg-gradient-modern flex flex-col justify-center items-center p-8 relative overflow-hidden"
+      className="min-h-[90vh] bg-gradient-modern flex flex-col justify-center items-center p-8 relative overflow-hidden z-0"
     >
       {/* Optimized Background Pattern */}
       <motion.div 

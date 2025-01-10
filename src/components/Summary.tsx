@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const Summary = () => {
   return (
-    <section className="py-16 px-8 bg-resume-secondary animate-fadeIn">
+    <section className="py-16 px-8 bg-resume-secondary animate-fadeIn relative z-10 -mt-32">
       <div className="max-w-4xl mx-auto space-y-12">
         <h2 className="text-3xl font-bold text-resume-primary mb-8 flex items-center gap-2">
           <Award className="h-8 w-8 text-resume-accent" />

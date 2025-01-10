@@ -64,26 +64,21 @@
   }
 }
 
-/* Performance optimized animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease-out forwards;
-  will-change: transform, opacity;
-}
-
-.glass {
+/* Modern design utilities */
+.glass-card {
   @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
-  will-change: backdrop-filter;
+}
+
+.modern-shadow {
+  @apply shadow-modern hover:shadow-modern-lg transition-shadow duration-300;
+}
+
+.gradient-border {
+  @apply relative;
+  &::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-resume-accent to-resume-light rounded-[inherit] -z-10 blur opacity-50;
+  }
 }
 
 .section-padding {
@@ -91,8 +86,7 @@
 }
 
 .card-gradient {
-  @apply bg-gradient-to-br from-card to-secondary/80 backdrop-blur-sm;
-  will-change: background-color;
+  @apply bg-gradient-modern backdrop-blur-sm;
 }
 
 /* Optimized scroll behavior */
@@ -126,37 +120,12 @@
   }
 
   section {
-    width: 210mm;
-    min-height: 297mm;
-    margin: 0 !important;
-    padding: 2rem !important;
     break-inside: avoid;
     page-break-inside: avoid;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: white !important;
-    color: black !important;
-  }
-
-  section:not(:first-child) {
-    break-before: page;
-    page-break-before: always;
   }
 
   .no-print {
     display: none !important;
-  }
-
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color-adjust: exact !important;
-  }
-
-  img, svg {
-    display: block !important;
-    print-color-adjust: exact !important;
   }
 }
 
@@ -165,7 +134,7 @@
   @apply animate-pulse bg-gray-200 rounded;
 }
 
-/* Optimized transitions */
+/* Modern transitions */
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

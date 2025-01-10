@@ -29,6 +29,12 @@ export default {
           secondary: "#F1F0FB",
           accent: "#9b87f5",
           text: "#4A5568",
+          light: "#D6BCFA",
+          neutral: "#8E9196",
+          gradient: {
+            start: "#1a1f2c",
+            end: "#2d3748",
+          },
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -59,10 +65,20 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-soft': 'linear-gradient(to right, #243949 0%, #517fa4 100%)',
+        'gradient-modern': 'linear-gradient(135deg, #1a1f2c 0%, #2d3748 100%)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        'modern': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'modern-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'modern-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       },
       keyframes: {
         "accordion-down": {

@@ -4,7 +4,7 @@ import { PrintableLayout } from "@/components/printable/PrintableLayout";
 import { ExperienceSection } from "@/components/printable/ExperienceSection";
 import { SkillsSection } from "@/components/printable/SkillsSection";
 import { EducationSection } from "@/components/printable/EducationSection";
-import { Globe2 } from "lucide-react";
+import { Globe2, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { Separator } from "@/components/ui/separator";
 
@@ -13,6 +13,24 @@ const PrintableResume = () => {
     { name: "Português", level: "Nativo", proficiency: 100 },
     { name: "Inglês", level: "Fluente", proficiency: 90 },
     { name: "Espanhol", level: "Intermediário", proficiency: 75 }
+  ];
+
+  const certifications = [
+    {
+      title: "Gestão Estratégica de Negócios",
+      institution: "FGV",
+      year: "2022"
+    },
+    {
+      title: "Liderança e Gestão de Equipes",
+      institution: "HSM University",
+      year: "2021"
+    },
+    {
+      title: "Negociação Avançada",
+      institution: "Harvard Business School Online",
+      year: "2020"
+    }
   ];
 
   return (
@@ -86,6 +104,41 @@ const PrintableResume = () => {
                         className="bg-resume-accent h-2.5 rounded-full transition-all duration-500"
                         style={{ width: `${language.proficiency}%` }}
                       />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Separator className="my-12 bg-resume-primary/10" />
+
+            {/* Seção de Certificações */}
+            <div className="mt-12">
+              <div className="flex items-center gap-3 mb-8">
+                <Award className="h-8 w-8 text-resume-accent" />
+                <h2 className="text-3xl font-bold text-resume-primary">
+                  Certificações e Cursos
+                </h2>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-6">
+                {certifications.map((cert) => (
+                  <div
+                    key={cert.title}
+                    className="bg-resume-secondary p-6 rounded-lg border border-resume-primary/5 hover:border-resume-accent/20 transition-colors duration-300"
+                  >
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="text-xl font-semibold text-resume-primary">
+                          {cert.title}
+                        </h3>
+                        <p className="text-resume-text mt-1">
+                          {cert.institution}
+                        </p>
+                      </div>
+                      <span className="text-resume-accent font-medium">
+                        {cert.year}
+                      </span>
                     </div>
                   </div>
                 ))}

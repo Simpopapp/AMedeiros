@@ -1,30 +1,47 @@
-import { User, Mail, MapPin } from "lucide-react";
+import { User, Mail, MapPin, Briefcase } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="min-h-[60vh] bg-resume-secondary flex flex-col justify-center items-center p-8 animate-fadeIn">
-      <div className="w-32 h-32 rounded-full bg-resume-accent mb-8 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2787&auto=format&fit=crop"
-          alt="Professional headshot"
-          className="w-full h-full object-cover"
-        />
+    <section className="min-h-[80vh] bg-resume-secondary flex flex-col justify-center items-center p-8 animate-fadeIn relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-resume-accent rotate-45 transform scale-150"></div>
       </div>
-      <h1 className="text-4xl md:text-5xl font-bold text-resume-primary mb-4 text-center">
-        Alessandra Medeiros de Oliveira
-      </h1>
-      <h2 className="text-xl md:text-2xl text-resume-text mb-6 text-center max-w-2xl">
-        Diretora comercial na Oba Hortifruti | Negociação, Desenvolvimento de
-        Marca Própria e Negócios Internacionais
-      </h2>
-      <div className="flex flex-wrap gap-6 justify-center items-center text-resume-text">
-        <div className="flex items-center gap-2">
-          <MapPin className="w-5 h-5" />
-          <span>São Paulo, Brazil</span>
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl w-full flex flex-col items-center">
+        <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-resume-accent mb-8 overflow-hidden shadow-xl border-4 border-white">
+          <img
+            src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=2787&auto=format&fit=crop"
+            alt="Alessandra Medeiros de Oliveira"
+            className="w-full h-full object-cover"
+          />
         </div>
-        <div className="flex items-center gap-2">
-          <Mail className="w-5 h-5" />
-          <span>contato@alessandra.com</span>
+        
+        <h1 className="text-4xl md:text-5xl font-bold text-resume-primary mb-4 text-center">
+          Alessandra Medeiros de Oliveira
+        </h1>
+        
+        <div className="flex items-center gap-2 text-resume-accent mb-6">
+          <Briefcase className="w-5 h-5" />
+          <h2 className="text-xl md:text-2xl font-medium">
+            Diretora Comercial
+          </h2>
+        </div>
+        
+        <h3 className="text-lg md:text-xl text-resume-text mb-8 text-center max-w-2xl">
+          Oba Hortifruti | Negociação, Desenvolvimento de Marca Própria e Negócios Internacionais
+        </h3>
+        
+        <div className="flex flex-wrap gap-6 justify-center items-center text-resume-text">
+          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+            <MapPin className="w-5 h-5 text-resume-accent" />
+            <span>São Paulo, Brazil</span>
+          </div>
+          <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+            <Mail className="w-5 h-5 text-resume-accent" />
+            <span>contato@alessandra.com</span>
+          </div>
         </div>
       </div>
     </section>

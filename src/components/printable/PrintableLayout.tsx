@@ -1,4 +1,4 @@
-import { Download, Printer, Share2, ArrowLeft } from "lucide-react";
+import { Download, Printer, Share2, ArrowLeft, Globe2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -32,12 +32,18 @@ export const PrintableLayout = ({ children }: PrintableLayoutProps) => {
     }
   };
 
+  const openWebVersion = () => {
+    // Using window.open to ensure it opens in a new tab/window
+    window.open(window.location.origin, '_blank');
+    toast.success("Abrindo versão web...");
+  };
+
   return (
     <div className="bg-white min-h-screen">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed top-4 right-4 z-50 no-print flex gap-2"
+        className="fixed top-4 right-4 z-50 no-print flex gap-2 flex-col sm:flex-row"
       >
         <Button
           variant="outline"
@@ -72,6 +78,15 @@ export const PrintableLayout = ({ children }: PrintableLayoutProps) => {
         >
           <Download className="mr-2 h-4 w-4" />
           PDF
+        </Button>
+
+        <Button
+          onClick={openWebVersion}
+          variant="outline"
+          className="bg-white hover:bg-gray-100"
+        >
+          <Globe2 className="mr-2 h-4 w-4" />
+          Versão Web
         </Button>
       </motion.div>
       
